@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import AppLayout from '@/components/layout/AppLayout'
 import PaymentModal from '@/components/modules/PaymentModal'
@@ -65,7 +65,7 @@ function getMedicineChips(diagnosis: string): string[] {
 
 const TREATMENT_CATEGORIES = ['General', 'Dental', 'Cosmetology']
 
-export default function NewVisitPage() {
+function NewVisitContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const patientId = searchParams.get('patient')
@@ -613,5 +613,13 @@ export default function NewVisitPage() {
         />
       )}
     </AppLayout>
+  )
+}
+
+export default function NewVisitPage() {
+  return (
+    <Suspense fallback={<div className="flex h-screen w-full items-center justify-center"><Loading /></div>}>
+      <NewVisitContent />
+    </Suspense>
   )
 }

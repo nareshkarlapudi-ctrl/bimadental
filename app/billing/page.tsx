@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import AppLayout from '@/components/layout/AppLayout'
 import PaymentModal from '@/components/modules/PaymentModal'
@@ -13,7 +13,7 @@ import { Receipt, IndianRupee, Clock } from 'lucide-react'
 
 type FilterTab = 'all' | 'pending' | 'paid' | 'failed'
 
-export default function BillingPage() {
+function BillingContent() {
   const searchParams = useSearchParams()
   const defaultTab = (searchParams.get('status') as FilterTab) || 'all'
 
@@ -181,5 +181,13 @@ export default function BillingPage() {
         />
       )}
     </AppLayout>
+  )
+}
+
+export default function BillingPage() {
+  return (
+    <Suspense fallback={<div className="flex h-screen w-full items-center justify-center"><Loading /></div>}>
+      <BillingContent />
+    </Suspense>
   )
 }
