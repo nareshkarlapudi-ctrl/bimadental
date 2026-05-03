@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx ts-node *)",
+      "PowerShell(Get-Command node, npm, npx -ErrorAction SilentlyContinue)"
+    ]
+  }
+}

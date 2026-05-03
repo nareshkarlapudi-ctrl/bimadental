@@ -1,0 +1,15 @@
+export const TREATMENTS = [
+  { name:'Consultation',       price:500,   category:'General'     },
+  { name:'Dental Cleaning',    price:1500,  category:'Dental'      },
+  { name:'Root Canal',         price:8000,  category:'Dental'      },
+  { name:'Tooth Extraction',   price:2000,  category:'Dental'      },
+  { name:'Dental Filling',     price:1500,  category:'Dental'      },
+  { name:'Crown Placement',    price:12000, category:'Dental'      },
+  { name:'Teeth Whitening',    price:6000,  category:'Dental'      },
+  { name:'Facial Treatment',   price:3000,  category:'Cosmetology' },
+  { name:'Acne Treatment',     price:2500,  category:'Cosmetology' },
+  { name:'Laser Hair Removal', price:5000,  category:'Cosmetology' },
+  { name:'Chemical Peel',      price:4000,  category:'Cosmetology' },
+  { name:'Botox',              price:15000, category:'Cosmetology' },
+  { name:'PRP Therapy',        price:8000,  category:'Cosmetology' },
+]
